@@ -385,6 +385,37 @@ img {
 .modal-form-agreement-link {
   color: var(--iris);
 }
+.modal-form-agreement-box {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--modal);
+  border-radius: 2px;
+}
+
+.modal-form-agreement-checked {
+  opacity: 0;
+  transition: var(--anim);
+}
+.modal-form-agreement-unchecked {
+  opacity: 1;
+  transition: var(--anim);
+}
+
+.modal-form-agreement-box:checked {
+  background-color: var(--white);
+  border-color: var(--iris);
+}
+input[type='checkbox']:checked
+  + .modal-form-agreement-icon
+  > .modal-form-agreement-checked {
+  opacity: 1;
+}
+input[type='checkbox']:checked
+  + .modal-form-agreement-icon
+  > .modal-form-agreement-unchecked {
+  opacity: 0;
+}
 
 /* -----section----- 1 */
 
