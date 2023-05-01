@@ -256,7 +256,7 @@ img {
   min-height: 576px;
 
   background-color: var(--dairy);
-  padding: 24px;
+  padding: 72px 24px 24px 24px;
 
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -309,7 +309,6 @@ img {
   text-align: center;
   letter-spacing: 0.02em;
 
-  margin-top: 48px;
   margin-bottom: 16px;
 }
 .modal-form {
@@ -335,6 +334,7 @@ img {
   transition: border var(--anim), outline-color var(--anim);
 }
 .modal-form-input:focus {
+  outline: none;
   border: 1px solid var(--iris);
   outline-color: var(--iris);
 }
@@ -353,6 +353,7 @@ img {
   fill: var(--iris);
 }
 .modal-form-massage {
+  resize: none;
   margin-bottom: 16px;
   display: block;
   width: 100%;
@@ -370,11 +371,11 @@ img {
 .modal-form-massage:focus {
   border: 1px solid var(--iris);
   outline-color: var(--iris);
+  outline: none;
 }
 .modal-form-agreement {
   display: flex;
   align-items: center;
-  gap: 8px;
   margin-bottom: 24px;
 }
 .modal-form-agreement-text {
@@ -382,39 +383,43 @@ img {
   line-height: 1.17;
   letter-spacing: 0.04em;
 }
+
 .modal-form-agreement-link {
   color: var(--iris);
 }
-.modal-form-agreement-box {
-  appearance: none;
+.modal-form-agreement-icon {
+  margin-right: 8px;
   width: 16px;
   height: 16px;
   border: 1px solid var(--modal);
   border-radius: 2px;
+  fill: var(--white);
+  cursor: pointer;
+  transition: border var(--anim), outline-color var(--anim);
+}
+
+.modal-form-agreement-icon:focus {
+  border: 1px solid var(--ocean);
+  outline: none;
+}
+.modal-form-agreement-unchecked {
+  opacity: 1;
+  transition: opacity var(--anim);
+}
+.modal-form-agreement-box:checked
+  ~ .modal-form-agreement-icon
+  > .modal-form-agreement-unchecked {
+  opacity: 0;
 }
 
 .modal-form-agreement-checked {
   opacity: 0;
-  transition: var(--anim);
+  transition: opacity var(--anim);
 }
-.modal-form-agreement-unchecked {
-  opacity: 1;
-  transition: var(--anim);
-}
-
-.modal-form-agreement-box:checked {
-  background-color: var(--white);
-  border-color: var(--iris);
-}
-input[type='checkbox']:checked
-  + .modal-form-agreement-icon
+.modal-form-agreement-box:checked
+  ~ .modal-form-agreement-icon
   > .modal-form-agreement-checked {
   opacity: 1;
-}
-input[type='checkbox']:checked
-  + .modal-form-agreement-icon
-  > .modal-form-agreement-unchecked {
-  opacity: 0;
 }
 
 /* -----section----- 1 */
@@ -739,9 +744,11 @@ input[type='checkbox']:checked
 .sbc-footrer-text {
   margin-bottom: 16px;
 }
+.label-sbc-footer {
+  margin-right: 24px;
+}
 .sbc-footrer-mail {
   padding-left: 16px;
-  margin-right: 24px;
   width: 264px;
   height: 40px;
   background-color: transparent;
